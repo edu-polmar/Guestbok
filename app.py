@@ -7,23 +7,46 @@ app = Flask(__name__)
 JSON_FILE = 'data.json'
 
 HTML = '''
-<h2>Nytt inlägg</h2>
-<form method="post" action="/write-json">
-    <h3>Namn</h3>
-    <input name="namn">
-    <h3>Meddelande</h3>
-    <textarea name="meddelande" rows="6" cols="40"></textarea><br>
-    <input type="submit" value="Spara">
-</form>
-<h2>Inlägg</h2>
-{% for post in posts %}
-    <div style='margin-bottom:30px;'>
-        <strong>Namn: {{post.namn}}</strong>
-        <p>Skrev: {{post.meddelande}}</p>
-        <p>Tiden: {{post.time}}</p>
-        <br>
-    </div>
-{% endfor %}
+<body style='font-family:Arial,
+Helvetica,
+sans-serif;
+background-color:#e0e0e0;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display:flex;
+align-items:center;
+flex-direction:column;'
+overflow-y:auto;'>
+    <section style='position:absolute; top:50vh; left:50; height:100px;'>
+            <img src="{{ url_for('static', filename='Snapchat-1495165468.jpg') }}" alt="Snapchat" width='350px';>
+    </section>
+    <h2>Nytt inlägg</h2>
+    <form method="post" action="/write-json">
+        <h3>Namn</h3>
+        <input name="namn">
+        <h3>Meddelande</h3>
+        <textarea name="meddelande" rows="6" cols="40"></textarea><br>
+        <input type="submit" value="Spara">
+    </form>
+    <h2>Inlägg</h2>
+    {% for post in posts %}
+        <div style='margin-bottom:30px;
+        background-color:#f0f0f0;
+        padding:10px; width:25vw;
+        border-radius:10px;
+        box-shadow: 0px 0px 10px #888888;'>
+            <strong>Namn: {{post.namn}}</strong>
+            <p>Skrev: {{post.meddelande}}</p>
+            <p>Tiden: {{post.time}}</p>
+            <br>
+        </div>
+    
+    {% endfor %}
+    
+    </body>
 '''
 
 # läs text från JSON-filen och returnera innehållet som en lista

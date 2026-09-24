@@ -10,7 +10,7 @@ HTML = '''
 <body style='font-family:Arial,
 Helvetica,
 sans-serif;
-background-color:#e0e0e0;
+background-color:#f095b9;
 position: absolute;
 top: 0;
 left: 0;
@@ -21,23 +21,23 @@ align-items:center;
 flex-direction:column;'
 overflow-y:auto;'>
     <section style='position:absolute; top:50vh; left:50; height:100px;'>
-            <img src="{{ url_for('static', filename='Snapchat-1495165468.jpg') }}" alt="Snapchat" width='350px';>
+            <img src="{{ url_for('static', filename='Snapchat-1495165468.jpg') }}" alt="Snapchat" width='350px' style='border-radius:10px; box-shadow: 0px 0px 10px #eb3f84;'>
     </section>
     <h2>Nytt inlägg</h2>
     <form method="post" action="/write-json">
         <h3>Namn</h3>
-        <input name="namn">
+        <input name="namn" style='border:1px solid #ccc; border-radius:5px; padding:10px;'>
         <h3>Meddelande</h3>
-        <textarea name="meddelande" rows="6" cols="40"></textarea><br>
-        <input type="submit" value="Spara">
+        <textarea name="meddelande" rows="6" cols="40" style='border:1px solid #ccc; border-radius:5px; padding:10px;'></textarea><br>
+        <input type="submit" value="Spara" style='background-color:#eb3f84; border:none; color:white; padding:10px 20px; border-radius:5px; cursor:pointer; margin-top:10px;'>
     </form>
     <h2>Inlägg</h2>
     {% for post in posts %}
         <div style='margin-bottom:30px;
-        background-color:#f0f0f0;
+        background-color:#f279aa;
         padding:10px; width:25vw;
         border-radius:10px;
-        box-shadow: 0px 0px 10px #888888;'>
+        box-shadow: 0px 0px 10px #eb3f84;'>
             <strong>Namn: {{post.namn}}</strong>
             <p>Skrev: {{post.meddelande}}</p>
             <p>Tiden: {{post.time}}</p>
